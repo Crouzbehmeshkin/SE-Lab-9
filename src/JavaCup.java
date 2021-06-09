@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import static java.lang.Thread.sleep;
+
 public class JavaCup {
     public static void main(String[] args)
     {
@@ -23,12 +25,17 @@ public class JavaCup {
         else { System.out.println("NO"); }
     }
     public static void temp() {
-        ArrayList a = new ArrayList();
-        for (int i = 0; i < 10000; i++)
+        short[] a = new short[20000*10000 + 5];
+        for (short i = 0; i < 10000; i++)
         {
-            for (int j = 0; j < 20000; j++) {
-                a.add(i + j);
+            for (short j = 0; j < 20000; j++) {
+                a[i*20000 + j] = (short)(i+j);
             }
+        }
+        try {
+            sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 }
